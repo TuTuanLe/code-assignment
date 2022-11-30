@@ -1,16 +1,16 @@
-import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { MainLayout } from '../layout';
+import { Home } from '../screens/Home';
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: (
-            <div>
-                <h1>Hello World</h1>
-                <Link to="about">About Us</Link>
-            </div>
-        ),
-    },
-]);
-
-createRoot(document.getElementById('root')).render(<RouterProvider router={router} />);
+export const RoutesAssignment = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<p>hello</p>} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
+};

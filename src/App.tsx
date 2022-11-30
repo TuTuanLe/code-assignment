@@ -1,10 +1,8 @@
 import './App.css';
-import { MainLayout } from './layout';
+import { RoutesAssignment } from './routes';
 
 function App() {
-  return (
-   <MainLayout/>
-  );
+    return <RoutesAssignment />;
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import { StyledFooter } from './Footer.styles';
 
 export const Footer = () => {
-    return <StyledFooter>hello nhung nguoi anh em thien lanh</StyledFooter>;
+    return <StyledFooter>78k4/ Cong Hoa Tan Binh</StyledFooter>;
 };

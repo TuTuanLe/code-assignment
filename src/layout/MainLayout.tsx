@@ -1,20 +1,14 @@
 import React, { ReactElement } from 'react';
+import { Outlet } from 'react-router-dom';
 import { Footer } from '../components/footer';
 import { HeaderAssignment } from '../components/header';
-import { NavBar } from '../components/navbar';
 import { StyledMainLayout } from './MainLayout.styles';
 
-export type MainLayoutProps = {
-    children?: ReactElement;
-};
-
-export const MainLayout = (props: MainLayoutProps) => {
-    const { children } = props;
+export const MainLayout = () => {
     return (
         <StyledMainLayout>
             <HeaderAssignment />
-            {/* <NavBar /> */}
-            {children}
+            <Outlet />
             <Footer />
         </StyledMainLayout>
     );

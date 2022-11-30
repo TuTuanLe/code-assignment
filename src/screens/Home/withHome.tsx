@@ -12,8 +12,8 @@ export interface HomeProps {
     };
 }
 
-export const withHomeController = <P,>(Component: ComponentType<P>): ComponentType<P> => {
-    return (props: P) => {
+export const withHomeController = (Component: ComponentType<HomeProps>): ComponentType => {
+    return (props) => {
         const LogicProps: HomeProps = {
             data: {
                 template: projects,
@@ -21,6 +21,6 @@ export const withHomeController = <P,>(Component: ComponentType<P>): ComponentTy
             dispatch: {},
         };
 
-        return <Component {...props} {...LogicProps} />;
+        return <Component {...LogicProps} {...props} />;
     };
 };
