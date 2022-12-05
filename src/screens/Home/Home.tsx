@@ -29,6 +29,8 @@ export const HomeDesktop = (props: HomeProps) => {
         }
     };
 
+    const handleScroll = () => {};
+
     useEffect(() => {
         resWidth();
         return () => window.removeEventListener('resize', resWidth);
