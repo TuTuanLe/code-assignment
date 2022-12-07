@@ -4,6 +4,8 @@ import { StyledHome } from './Home.styles';
 import { HomeProps } from './withHome';
 import { scroller } from 'react-scroll';
 import Banner from './Banner/Banner';
+import Project from './Project/Project';
+import { Portfolio } from './Portfolio';
 
 export const HomeDesktop = (props: HomeProps) => {
     const {
@@ -61,15 +63,10 @@ export const HomeDesktop = (props: HomeProps) => {
             </div>
 
             <div className="nextPageWrapper">
-                {template?.map((item, index) => (
-                    <PortfolioCard
-                        key={index}
-                        id={item.id}
-                        backgroundColor={item.backgroundColor}
-                        url={item.url}
-                        description={item.description}
-                    />
-                ))}
+                <div className="flexCenter">
+                    <Project onScrollClick={handleOnScrollPortfolioClick} />
+                </div>
+                <Portfolio />
             </div>
         </StyledHome>
     );

@@ -4,6 +4,10 @@ import { StyledBanner, StyledButton } from './Banner.styles';
 
 import opacityBack from '../../../assets/images/opacityBlack.svg';
 
+import mouse from '../../../assets/icons/mouse.svg';
+
+import arrow_dow from '../../../assets/icons/arrow-down.svg';
+
 export type BannerProps = {
     onScrollClick: () => void;
 };
@@ -28,9 +32,9 @@ export const Banner = (props: BannerProps) => {
                     <StyledButton type="primary">Register</StyledButton>
                 </Link>
 
-                <div className="banner__mouse" onClick={onScrollClick}>
-                    {/* <img src={mouse} alt="" />
-                    <img src={arrow_dow} alt="" /> */}
+                <div className="scroll-mouse" onClick={onScrollClick}>
+                    <img src={mouse} alt="" />
+                    <img src={arrow_dow} alt="" />
                 </div>
             </div>
         </StyledBanner>
