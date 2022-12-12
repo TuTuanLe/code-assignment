@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { PortfolioCard } from '../../components/portFolioCard';
 import { StyledHome } from './Home.styles';
 import { HomeProps } from './withHome';
 import { scroller } from 'react-scroll';
 import Banner from './Banner/Banner';
 import Project from './Project/Project';
 import { Portfolio } from './Portfolio';
+import { useAssignment } from '../../store';
 
 export const HomeDesktop = (props: HomeProps) => {
     const {
