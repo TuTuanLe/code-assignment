@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, CreateAxiosDefaults, AxiosRes
 
 export class HttpClientService {
     private static _instance: AxiosInstance;
-    public static instance(): AxiosInstance {
+    public static get instance(): AxiosInstance {
         if (!this._instance) {
             this._instance = this.create();
         }
@@ -21,26 +21,26 @@ export class HttpClientService {
     public static async httpGet<T = any>(requestUri: string, options?: AxiosRequestConfig): Promise<T> {
         const config = await this.getConfig(options);
 
-        const response: AxiosResponse = await HttpClientService._instance.get(requestUri, config);
+        const response: AxiosResponse = await HttpClientService.instance.get(requestUri, config);
         return response.data as T;
     }
 
     public static async httpPost<T = any>(requestUri: string, data: any, options?: AxiosRequestConfig): Promise<T> {
         const config = await this.getConfig(options);
-        const response: AxiosResponse = await HttpClientService._instance.post(requestUri, data, config);
+        const response: AxiosResponse = await HttpClientService.instance.post(requestUri, data, config);
         return response.data as T;
     }
 
     public static async httpPut<T = any>(requestUri: string, data: any, options?: AxiosRequestConfig): Promise<T> {
         const config = await this.getConfig(options);
-        const response: AxiosResponse = await HttpClientService._instance.put(requestUri, data, config);
+        const response: AxiosResponse = await HttpClientService.instance.put(requestUri, data, config);
         return response.data as T;
     }
 
     public static async httpDelete<T = any>(requestUri: string, options?: AxiosRequestConfig): Promise<T> {
         const config = await this.getConfig(options);
 
-        const response: AxiosResponse = await HttpClientService._instance.delete(requestUri, config);
+        const response: AxiosResponse = await HttpClientService.instance.delete(requestUri, config);
         return response.data as T;
     }
 
@@ -49,7 +49,7 @@ export class HttpClientService {
         const additionalHeader = customHeaders ?? (await this.generateHeaders());
         return {
             header: {
-                ...HttpClientService._instance.defaults.headers,
+                ...HttpClientService.instance.defaults.headers,
                 ...additionalHeader,
             },
             ...remainingCustomOptions,
