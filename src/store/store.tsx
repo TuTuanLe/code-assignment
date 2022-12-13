@@ -7,14 +7,22 @@ export interface FrontendInfo {
     numberText: string;
 }
 
-export type BackendInfo = Partial<FrontendInfo>;
+export interface BackendInfo {
+    header: string;
+    subHeader: string;
+    numberText: string;
+}
 
 export interface FrontendInfos {
     rows: FrontendInfo[];
 }
 
+export interface BackendInfos {
+    rows: BackendInfo[];
+}
+
 const rawsFrontendInfo$ = new BehaviorSubject<FrontendInfos[]>([]);
-const rawsBackendInfo$ = new BehaviorSubject<BackendInfo[]>([]);
+const rawsBackendInfo$ = new BehaviorSubject<BackendInfos[]>([]);
 
 const frontendInfo$ = rawsFrontendInfo$.pipe(
     map((frontendInfo) =>
@@ -24,13 +32,13 @@ const frontendInfo$ = rawsFrontendInfo$.pipe(
     ),
 );
 
-fetch('../assets/data/front-end-info.json')
+fetch('data/front-end-info.json')
     .then((res) => res.json())
     .then((data) => {
         return rawsFrontendInfo$.next(data);
     });
 
-fetch('../assets/data/backend-info.json')
+fetch('data/backend-info.json')
     .then((res) => res.json())
     .then((data) => rawsBackendInfo$.next(data));
 
